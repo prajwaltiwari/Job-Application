@@ -17,6 +17,10 @@ public class Job {
         this.location = location;
     }
 
+    public Job() {
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -64,4 +68,6 @@ public class Job {
     public void setLocation(String location) {
         this.location = location;
     }
+
+
 }
