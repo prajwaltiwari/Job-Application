@@ -9,7 +9,7 @@ public interface JobService {
 
     Job getById(Long id);
 
-    Job defaultJob();
+    boolean deleteById(Long id);
 
-
+    boolean updateById(Long id, Job updatedJob);
 }
