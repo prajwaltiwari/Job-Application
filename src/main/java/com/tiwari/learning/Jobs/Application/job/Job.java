@@ -1,13 +1,18 @@
 package com.tiwari.learning.Jobs.Application.job;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="job_table")
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
-
     public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
         this.id = id;
         this.title = title;
@@ -16,11 +21,8 @@ public class Job {
         this.maxSalary = maxSalary;
         this.location = location;
     }
-
     public Job() {
-
     }
-
     public Long getId() {
         return id;
     }
@@ -68,6 +70,4 @@ public class Job {
     public void setLocation(String location) {
         this.location = location;
     }
-
-
 }
