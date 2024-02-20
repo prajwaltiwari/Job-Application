@@ -50,6 +50,7 @@ public class JobServiceImp implements JobService {
     public boolean updateById(Long id, Job updatedJob) {
         for (Job job:jobs) {
             if(job.getId().equals(id)){
+                job.setId(updatedJob.getId());
                 job.setDescription(updatedJob.getDescription());
                 job.setTitle(updatedJob.getTitle());
                 job.setMaxSalary(updatedJob.getMaxSalary());
