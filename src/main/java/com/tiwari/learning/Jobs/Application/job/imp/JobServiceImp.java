@@ -11,7 +11,7 @@ import java.util.Objects;
 @Service
 public class JobServiceImp implements JobService {
     private List<Job> jobs = new ArrayList<>();
-    private Long nextId =1l;
+    private Long nextId = 1L;
 
     @Override
     public List<Job> findAll() {
