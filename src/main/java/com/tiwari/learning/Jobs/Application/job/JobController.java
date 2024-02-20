@@ -2,6 +2,8 @@ package com.tiwari.learning.Jobs.Application.job;
 
 
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -11,7 +13,8 @@ import java.util.Objects;
 
 @RestController
 public class JobController {
-    private JobService jobService ;
+
+    private final JobService jobService ;
 
     public JobController(JobService jobService) {
         this.jobService = jobService;
@@ -23,20 +26,22 @@ public class JobController {
     }
 
     @GetMapping("/jobs")
-    public List<Job> findAll(){
-        return jobService.findAll();
+    public ResponseEntity<List<Job>> findAll(){
+        return ResponseEntity.ok(jobService.findAll());
     }
 
     @PostMapping("/jobs")
-    public String create(@RequestBody Job job){
+    public ResponseEntity<Job> create(@RequestBody Job job){
         jobService.createJob(job);
-        return "JOB ADDED!";
+        return new ResponseEntity<>(job,HttpStatus.CREATED);
     }
     @GetMapping({"/jobs/{id}"})
-    public Job getById(@PathVariable Long id){
-        if (!Objects.equals(jobService.getById(id), null)) {
-            return jobService.getById(id);
+    public ResponseEntity<Job> getById(@PathVariable Long id){
+        Job job = jobService.getById(id);
+        if(job == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return jobService.defaultJob();
+        return new ResponseEntity<>(job,HttpStatus.OK);
+
     }
 }

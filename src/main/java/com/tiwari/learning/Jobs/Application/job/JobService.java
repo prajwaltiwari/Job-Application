@@ -10,4 +10,6 @@ public interface JobService {
     Job getById(Long id);
 
     Job defaultJob();
+
+
 }
