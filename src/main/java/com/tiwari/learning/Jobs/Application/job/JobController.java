@@ -4,7 +4,7 @@ package com.tiwari.learning.Jobs.Application.job;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -19,7 +19,7 @@ public class JobController {
 
     @GetMapping("/hello")
     public String hello(){
-        return "Hello Kutte !!";
+        return "Hello Up And Running !!";
     }
 
     @GetMapping("/jobs")
