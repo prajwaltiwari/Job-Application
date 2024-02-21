@@ -12,8 +12,6 @@ public class JobServiceImp implements JobService {
     //private final List<Job> jobs = new ArrayList<>();
     private final JobRepository jobRepository;
 
-
-
     public JobServiceImp(JobRepository jobRepository) {
         this.jobRepository = jobRepository;
     }
@@ -54,6 +52,7 @@ public class JobServiceImp implements JobService {
             job.setMaxSalary(updatedJob.getMaxSalary());
             job.setMinSalary(updatedJob.getMinSalary());
             job.setLocation(updatedJob.getLocation());
+            jobRepository.save(job);
             return true;
         }
         return false;    }
